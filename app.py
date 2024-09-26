@@ -20,13 +20,13 @@ def add(request):
     CountLog.objects.create()
     return {"count": CountLog.objects.count()}
 
-@app.route("/slow/")
-async def slow(request):
+@app.api.get("/slow")
+def slow(request):
     import ollama
     response = ollama.chat(model='llama3.1', messages=[
-    {
-        'role': 'user',
-        'content': 'Why is the sky blue?',
-    },
+        {
+            'role': 'user',
+            'content': 'Why is the sky blue?',
+        },
     ])
     return response['message']['content']
