@@ -2,6 +2,8 @@ FROM python:3.12
 
 # Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
+COPY ./run-ollama.sh .
+RUN chmod +x run-ollama.sh && ./run-ollama.sh
 
 # The installer requires curl (and certificates) to download the release archive
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates
@@ -19,9 +21,6 @@ ENV PATH="/root/.cargo/bin/:$PATH"
 RUN uv venv 
 RUN uv pip install nanodjango ollama
 
-COPY ./run-ollama.sh .
-
-RUN chmod +x run-ollama.sh && ./run-ollama.sh
 
 # Copy app code
 COPY app.py . 
