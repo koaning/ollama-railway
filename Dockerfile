@@ -3,7 +3,7 @@ FROM ollama/ollama
 # Install Ollama
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 # RUN curl -fsSL https://ollama.com/install.sh | sh
-RUN ollama serve && ollama pull llama3.2:1b
+RUN ollama serve & ollama pull llama3.2:1b
 # Install required packages
 RUN uv pip install nanodjango
 
