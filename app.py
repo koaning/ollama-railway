@@ -22,6 +22,11 @@ def add(request):
 
 @app.route("/slow/")
 async def slow(request):
-    import asyncio
-    await asyncio.sleep(10)
-    return "Async views supported"
+    import ollama
+    response = ollama.chat(model='llama3.1', messages=[
+    {
+        'role': 'user',
+        'content': 'Why is the sky blue?',
+    },
+    ])
+    return response['message']['content']
