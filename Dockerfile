@@ -1,4 +1,4 @@
-FROM ollama
+FROM ollama/ollama
 
 # Install Ollama
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
