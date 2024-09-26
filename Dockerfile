@@ -16,7 +16,7 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.cargo/bin/:$PATH"
 
 # Install required packages
-RUN uv pip install nanodjango ollama
+RUN uv venv & uv pip install nanodjango ollama
 
 COPY ./run-ollama.sh .
 
