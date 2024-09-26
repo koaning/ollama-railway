@@ -1,9 +1,8 @@
-FROM python:3.12
+FROM ollama
 
 # Install Ollama
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN curl -fsSL https://ollama.com/install.sh | sh
-RUN ollama serve
+# RUN curl -fsSL https://ollama.com/install.sh | sh
 RUN ollama pull llama3.2:1b
 # Install required packages
 RUN uv pip install nanodjango
