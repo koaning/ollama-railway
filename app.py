@@ -1,7 +1,7 @@
 from django.db import models
 from nanodjango import Django
 
-app = Django(ALLOWED_HOSTS=["ollama-railway-production.up.railway.app/", "localhost", "127.0.0.1"])
+app = Django()
 
 @app.admin
 class CountLog(models.Model):
